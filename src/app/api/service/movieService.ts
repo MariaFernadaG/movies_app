@@ -21,3 +21,8 @@ export const getMovies = async (currentPage: number, itemPage: number, search: s
     throw new Error(`Failed to get movies: ${error.message}`);
   }
 };
+
+export const getMovieGoogle = (search: string) => {
+  const searchQuery = encodeURIComponent(search);
+  window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
+};

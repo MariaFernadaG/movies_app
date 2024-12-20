@@ -8,8 +8,9 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
-} from '../components/cardComponent';  
+} from '../components/cardComponent';
+import { getMovieGoogle } from '@/app/api/service/movieService';
+
 
 const ItemMovie = ({
   id,
@@ -21,8 +22,18 @@ const ItemMovie = ({
 }: IMovie) => {
   const [hovering, setHovering] = useState(false);
 
+  
+  const handleCardClick = () => {
+    getMovieGoogle(title);  
+  };
+
   return (
-    <Card className="bg-gray-50 dark:bg-transparent border-2 border-gray-200 rounded-lg transition-all duration-300 w-full">
+    <Card
+      className="bg-gray-50 dark:bg-transparent border-2 border-gray-200 rounded-lg transition-all duration-300 w-full cursor-pointer hover:border-primary"
+      onClick={handleCardClick}  
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    >
       <CardHeader className="relative">
         <div
           className="relative"
@@ -52,14 +63,12 @@ const ItemMovie = ({
           <CardDescription className="line-clamp-2 leading-5 text-sm text-accent-foreground">
             {crew}
           </CardDescription>
-          <div className=" py-2 flex items-center space-x-2">
-          <div className="inline-flex items-center text-gray-500 text-xs py-1 px-2 rounded-full bg-primary">
-            <FaStar color="white" size={14} className="mr-1" />
-            <span className="text-white">{rating}/10</span>
+          <div className="py-2 flex items-center space-x-2">
+            <div className="inline-flex items-center text-gray-500 text-xs py-1 px-2 rounded-full bg-primary">
+              <FaStar color="white" size={14} className="mr-1" />
+              <span className="text-white">{rating}/10</span>
+            </div>
           </div>
-        </div>
-          
-          
         </div>
       </CardContent>
     </Card>

@@ -16,28 +16,28 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState<string>(''); 
   const [filteredMovies, setFilteredMovies] = useState<IMovie[]>([]); 
 
-  // Estado de carregamento da pesquisa
+
   const [isSearchLoading, setIsSearchLoading] = useState<boolean>(false);
 
   const { movies, isLoading, error, totalPages } = useMovies(currentPage, itemPage);
 
   useEffect(() => {
     if (searchQuery === '') {
-      setFilteredMovies(movies); // Mostra todos os filmes quando não há pesquisa
+      setFilteredMovies(movies); 
     } else {
-      // Quando a pesquisa está ativa, simula o carregamento
+      
       setIsSearchLoading(true);
       const filtered = movies.filter((movie) =>
         movie.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setFilteredMovies(filtered);
-      setIsSearchLoading(false); // Finaliza o carregamento da pesquisa
+      setIsSearchLoading(false);
     }
   }, [movies, searchQuery]);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    setCurrentPage(1); // Reseta para a primeira página quando uma nova pesquisa for feita
+    setCurrentPage(1); 
   };
 
   const hasMovies = filteredMovies && filteredMovies.length > 0;
@@ -74,10 +74,10 @@ const Home = () => {
     <div>
       <Navbar onSearch={handleSearch} /> 
       
-      {/* Slider com os filmes filtrados */}
+    
       <MovieSlider movies={filteredMovies} />
 
-      {/* Lista de filmes */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 p-20">
         {hasMovies ? (
           filteredMovies.map((movie) => {
@@ -99,7 +99,7 @@ const Home = () => {
         )}
       </div>
 
-      {/* Paginação */}
+      
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}
