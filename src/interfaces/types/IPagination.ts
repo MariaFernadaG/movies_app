@@ -3,8 +3,3 @@ export interface IPagination{
     currentPage: number;
     setCurrentPage: (page: number) => void;
   }
-  export interface ISearchParams {
-    per_page?: number;
-    page?: number;
-    search?: string;
-  }

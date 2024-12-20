@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import Pagination from '../components/pagination';
 import LoadingSkeleton from '@/components/loadingSkeleton';
 import MovieSlider from '@/components/slider';
-import { IMovie } from '@/interfaces/types/Movie';
+import { IMovie } from '@/interfaces/types/IMovie';
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);

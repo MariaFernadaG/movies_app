@@ -1,10 +1,11 @@
-import { IMovie } from '@/interfaces/types/Movie';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; 
 import 'swiper/css/navigation'; 
 import 'swiper/css/pagination'; 
 import { FaStar } from 'react-icons/fa'; 
 import { Navigation, Pagination } from 'swiper/modules';
+import { IMovie } from '@/interfaces/types/IMovie';
 
 interface MovieSliderProps {
   movies: IMovie[]; 
@@ -30,15 +31,14 @@ const MovieSlider = ({ movies }: MovieSliderProps) => {
               <img
                 src={movie.image_url || '/path/to/placeholder-image.jpg'}
                 alt={movie.title}
-                className="w-full h-full object-cover object-top"
+                className="absolute top-0 left-0 w-full h-full object-cover object-top"
               />
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent">
                 <div className="absolute top-[60%] left-20 transform -translate-y-1/2 max-w-lg p-6 text-white">
-                  <h1 className="text-1xl font-semibold mb-4 drop-shadow-md">
-                  Highlight of the month
-
-                  </h1>
+                  <span className="font-bold text-accent dark:text-white">
+                    Highlight of the month
+                  </span>
                   <p className="text-4xl font-semibold mb-2 drop-shadow-md">
                     {movie.title}
                   </p>

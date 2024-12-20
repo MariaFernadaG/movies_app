@@ -20,12 +20,14 @@ const Pagination: React.FC<IPagination> = ({
         pages.push(i);
       }
     } else {
+
       if (currentPage <= 3) {
-        pages.push(1, 2, 3, 4, totalPages);
+        pages.push(1, 2, 3, '...');
       } else if (currentPage >= totalPages - 2) {
-        pages.push(1, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+       
+        pages.push(1, '...', totalPages - 3, totalPages - 2, totalPages - 1);
       } else {
-        pages.push(1, currentPage - 1, currentPage, currentPage + 1, totalPages);
+        pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...');
       }
     }
 
@@ -37,7 +39,7 @@ const Pagination: React.FC<IPagination> = ({
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-3 py-2 rounded border border-gray-300 hover:bg-gray-200 disabled:opacity-50"
+        className="px-3 py-1 rounded border border-primary  hover:bg-gray-200 disabled:opacity-50 text-sm sm:text-base text-primary"
       >
         &lt;
       </button>
@@ -45,17 +47,17 @@ const Pagination: React.FC<IPagination> = ({
         const isEllipsis = typeof page !== "number";
 
         return isEllipsis ? (
-          <span key={index} className="px-3 py-2">
+          <span key={index} className="px-2 py-4 text-sm sm:text-base">
             ...
           </span>
         ) : (
           <button
             key={page}
             onClick={() => handlePageChange(page)}
-            className={`px-3 py-2 rounded border ${
+            className={`px-3 py-1 rounded border text-sm sm:text-base ${
               currentPage === page
                 ? "bg-primary text-white border-primary"
-                : "border-gray-300 hover:bg-gray-200"
+                : "border-primary text-primary hover:bg-gray-200"
             }`}
           >
             {page}
@@ -65,7 +67,7 @@ const Pagination: React.FC<IPagination> = ({
       <button
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-3 py-2 rounded border border-gray-300 hover:bg-gray-200 disabled:opacity-50"
+        className="px-3 py-1 rounded border border-primary  hover:bg-gray-200 disabled:opacity-50 text-sm sm:text-base text-primary"
       >
         &gt;
       </button>

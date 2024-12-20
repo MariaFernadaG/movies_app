@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getMovies } from '../app/api/service/movieService';
-import { IMovie } from '@/interfaces/types/Movie';
+import { IMovie } from '@/interfaces/types/IMovie';
 
 export const useMovies = (currentPage: number, itemPage: number) => {
   const [movies, setMovies] = useState<IMovie[]>([]);

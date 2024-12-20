@@ -59,7 +59,7 @@ const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = 'CardDescription';
 
-// Componente CardContent
+
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -75,7 +75,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn('inline-flex items-center p-1', className)}  // Reduzindo o padding
+    className={cn('inline-flex items-center p-1', className)} 
     {...props}
   />
 ));

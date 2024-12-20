@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IMovie } from '@/interfaces/types/Movie';
+import { IMovie } from '@/interfaces/types/IMovie';
 import { FaStar } from 'react-icons/fa';
 import { useState } from 'react';
 import {
@@ -52,7 +52,7 @@ const ItemMovie = ({
           <CardDescription className="line-clamp-2 leading-5 text-sm text-accent-foreground">
             {crew}
           </CardDescription>
-          <div className="  py-2 flex items-center space-x-2">
+          <div className=" py-2 flex items-center space-x-2">
           <div className="inline-flex items-center text-gray-500 text-xs py-1 px-2 rounded-full bg-primary">
             <FaStar color="white" size={14} className="mr-1" />
             <span className="text-white">{rating}/10</span>
