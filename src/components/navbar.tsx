@@ -14,7 +14,7 @@ const Navbar = ({ onSearch }: { onSearch: (query: string) => void }) => {
           height={700}
         />
       </div>
-      <Search onSearch={onSearch} /> {/* Passa a função onSearch para o componente Search */}
+      <Search onSearch={onSearch} /> 
     </nav>
   );
 };

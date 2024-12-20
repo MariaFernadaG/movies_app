@@ -71,7 +71,7 @@ const Home = () => {
         <MovieSlider movies={filteredMovies} /> 
       
 
-        <div className="grid grid-cols-4 gap-x-8 gap-y-12 mt-8 justify-items-center px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 p-20">
   {hasMovies ? (
     filteredMovies.map((movie) => {
       const posterUrl = movie.image_url || '/path/to/placeholder-image.jpg';

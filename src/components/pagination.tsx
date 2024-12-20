@@ -1,5 +1,5 @@
 import React from "react";
-import { IPagination } from "../interfaces/types/IPagination"; // Ajuste o caminho conforme necessário
+import { IPagination } from "../interfaces/types/IPagination"; 
 
 const Pagination: React.FC<IPagination> = ({
   totalPages,
