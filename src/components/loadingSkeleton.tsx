@@ -1,6 +1,6 @@
 const LoadingSkeleton = () => {
   return (
-    <div className="bg-gray-300 animate-pulse w-full h-72 rounded-lg"></div>
+    <div className="bg-gray-700 animate-pulse w-full h-72 rounded-lg"></div>
   );
 };
 
