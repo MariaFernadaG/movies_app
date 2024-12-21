@@ -16,8 +16,6 @@ const Home = () => {
   const [itemPage, setItemPage] = useState<number>(20);
   const [searchQuery, setSearchQuery] = useState<string>(''); 
   const [filteredMovies, setFilteredMovies] = useState<IMovie[]>([]); 
-
-
   const [isSearchLoading, setIsSearchLoading] = useState<boolean>(false);
 
   const { movies, isLoading, error, totalPages } = useMovies(currentPage, itemPage);
@@ -26,7 +24,6 @@ const Home = () => {
     if (searchQuery === '') {
       setFilteredMovies(movies); 
     } else {
-      
       setIsSearchLoading(true);
       const filtered = movies.filter((movie) =>
         movie.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -75,34 +72,31 @@ const Home = () => {
     <div>
       <Navbar onSearch={handleSearch} /> 
       
-    
       <MovieSlider movies={filteredMovies} />
 
-      
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 p-20">
-  {hasMovies ? (
-    filteredMovies.map((movie) => {
-      const posterUrl = movie.image_url || '/path/to/placeholder-image.jpg';
-      return (
-        <ItemMovie
-          key={movie.id || movie.title}
-          title={movie.title}
-          year={movie.year}
-          crew={movie.crew}
-          image_url={posterUrl}
-          id={movie.id}
-          rating={movie.rating}
-        />
-      );
-    })
-  ) : (
-    <div className="col-span-full flex justify-center items-center">
-      <NotFound />
-    </div>
-  )}
-</div>
+        {hasMovies ? (
+          filteredMovies.map((movie) => {
+            const posterUrl = movie.image_url || '/path/to/placeholder-image.jpg';
+            return (
+              <ItemMovie
+                key={movie.id || movie.title}
+                title={movie.title}
+                year={movie.year}
+                crew={movie.crew}
+                image_url={posterUrl}
+                id={movie.id}
+                rating={movie.rating}
+              />
+            );
+          })
+        ) : (
+          <div className="col-span-full flex justify-center items-center">
+            <NotFound />
+          </div>
+        )}
+      </div>
 
-      
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}

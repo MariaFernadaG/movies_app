@@ -11,7 +11,6 @@ import {
 } from '../components/cardComponent';
 import { getMovieGoogle } from '@/app/api/service/movieService';
 
-
 const ItemMovie = ({
   id,
   title,
@@ -22,7 +21,6 @@ const ItemMovie = ({
 }: IMovie) => {
   const [hovering, setHovering] = useState(false);
 
-  
   const handleCardClick = () => {
     getMovieGoogle(title);  
   };

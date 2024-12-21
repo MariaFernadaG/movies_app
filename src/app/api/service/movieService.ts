@@ -6,7 +6,7 @@ export const getMovies = async (currentPage: number, itemPage: number, search: s
   try {
     
     const response = await axios.get(
-      `${apiUrl}/movies?page=${currentPage}&limit=${itemPage}&search=${search}`
+      `${apiUrl}/movies?page=${currentPage}&limit=${itemPage}`
     );
 
  
