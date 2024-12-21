@@ -5,14 +5,14 @@ import 'swiper/css/pagination';
 import { FaStar } from 'react-icons/fa'; 
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { IMovie } from '@/interfaces/types/IMovie';
+import Image from 'next/image'; 
 
 interface MovieSliderProps {
   movies: IMovie[]; 
 }
 
 const MovieSlider = ({ movies }: MovieSliderProps) => {
-  
-  const limitedMovies = movies.slice(8, 11);
+  const limitedMovies = movies.slice(8, 11); 
 
   return (
     <div className="mt-0 shadow-lg">
@@ -32,10 +32,13 @@ const MovieSlider = ({ movies }: MovieSliderProps) => {
         {limitedMovies.map((movie) => (
           <SwiperSlide key={movie.id || movie.title}>
             <div className="relative w-full h-[670px] shadow-2xl group">
-              <img
+             
+              <Image
                 src={movie.image_url || '/path/to/placeholder-image.jpg'}
                 alt={movie.title}
                 className="absolute top-0 left-0 w-full h-full object-cover object-top"
+                layout="fill"  
+                objectFit="cover"  
               />
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/50 to-transparent">

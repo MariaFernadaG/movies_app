@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { IMovie } from '@/interfaces/types/IMovie';
 import { FaStar } from 'react-icons/fa';
-import { useState } from 'react';
 import {
   Card,
   CardHeader,
@@ -18,7 +17,6 @@ const ItemMovie = ({
   image_url,
   rating,
 }: IMovie) => {
-  const [hovering, setHovering] = useState(false);
 
   const handleCardClick = () => {
     getMovieGoogle(title);  
@@ -28,15 +26,9 @@ const ItemMovie = ({
     <Card
       className="bg-gray-50 dark:bg-transparent border-2 border-gray-200 rounded-lg transition-all duration-300 w-full cursor-pointer hover:border-primary"
       onClick={handleCardClick}  
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
     >
       <CardHeader className="relative">
-        <div
-          className="relative"
-          onMouseEnter={() => setHovering(true)}
-          onMouseLeave={() => setHovering(false)}
-        >
+        <div className="relative">
           <Image
             src={image_url ? image_url : `https://placehold.co/300x700.svg`}
             alt={'Movie Poster'}
