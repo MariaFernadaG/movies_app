@@ -9,6 +9,7 @@ import Pagination from '../components/pagination';
 import LoadingSkeleton from '@/components/loadingSkeleton';
 import MovieSlider from '@/components/slider';
 import { IMovie } from '@/interfaces/types/IMovie';
+import NotFound from '@/components/notFound';
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -79,25 +80,27 @@ const Home = () => {
 
       
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 p-20">
-        {hasMovies ? (
-          filteredMovies.map((movie) => {
-            const posterUrl = movie.image_url || '/path/to/placeholder-image.jpg';
-            return (
-              <ItemMovie
-                key={movie.id || movie.title}
-                title={movie.title}
-                year={movie.year}
-                crew={movie.crew}
-                image_url={posterUrl}
-                id={movie.id}
-                rating={movie.rating}
-              />
-            );
-          })
-        ) : (
-          <p>No movies available on this page</p>
-        )}
-      </div>
+  {hasMovies ? (
+    filteredMovies.map((movie) => {
+      const posterUrl = movie.image_url || '/path/to/placeholder-image.jpg';
+      return (
+        <ItemMovie
+          key={movie.id || movie.title}
+          title={movie.title}
+          year={movie.year}
+          crew={movie.crew}
+          image_url={posterUrl}
+          id={movie.id}
+          rating={movie.rating}
+        />
+      );
+    })
+  ) : (
+    <div className="col-span-full flex justify-center items-center">
+      <NotFound />
+    </div>
+  )}
+</div>
 
       
       <Pagination
