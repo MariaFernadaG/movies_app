@@ -12,7 +12,6 @@ import {
 import { getMovieGoogle } from '@/app/api/service/movieService';
 
 const ItemMovie = ({
-  id,
   title,
   year,
   crew,

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getMovies = async (currentPage: number, itemPage: number, search: string = '') => {
+export const getMovies = async (currentPage: number, itemPage: number) => {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   try {

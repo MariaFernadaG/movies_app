@@ -12,15 +12,18 @@ export const useMovies = (currentPage: number, itemPage: number) => {
     const fetchMovies = async () => {
       try { 
         setIsLoading(true);
-      
+        setError(null);  
         const response = await getMovies(currentPage, itemPage); 
         setMovies(response.data); 
         setTotalPages(response.pagination.maxPage); 
-      } catch (err: any) {
-        setError(err.message || 'Failed to load movies');
-      } finally {
-        setIsLoading(false);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message || 'Failed to load movies');
+        } else {
+          setError('An unknown error occurred');
+        }
       }
+      setIsLoading(false);      
     };
 
     fetchMovies();

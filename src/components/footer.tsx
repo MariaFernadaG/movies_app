@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; 
+import { FaTwitter, FaInstagram } from 'react-icons/fa'; 
 
 const Footer = () => {
   return (
     <footer className="bg-primary py-12 mt-10">
       <div className="px-4 sm:px-6 lg:px-8 container mx-auto">
 
-        {/* Logo */}
+       
         <div className="flex justify-center sm:justify-start mb-4">
           <Image
             className="h-10 w-auto drop-shadow-md"
@@ -21,7 +21,7 @@ const Footer = () => {
 
         <div className="flex flex-col sm:flex-row justify-between items-center">
           
-          {/* Terms and Privacy Links */}
+         
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-x-6 sm:space-y-0 text-white">
             <a href="/terms" className="text-sm hover:text-gray-400">Terms & Conditions</a>
             <a href="/privacy" className="text-sm hover:text-gray-400">Privacy</a>

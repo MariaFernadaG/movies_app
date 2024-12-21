@@ -13,7 +13,7 @@ import NotFound from '@/components/notFound';
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [itemPage, setItemPage] = useState<number>(20);
+  const [itemPage] = useState<number>(20);
   const [searchQuery, setSearchQuery] = useState<string>(''); 
   const [filteredMovies, setFilteredMovies] = useState<IMovie[]>([]); 
   const [isSearchLoading, setIsSearchLoading] = useState<boolean>(false);
